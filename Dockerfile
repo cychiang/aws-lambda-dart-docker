@@ -7,7 +7,7 @@ COPY . .
 RUN /usr/lib/dart/bin/pub get && /usr/lib/dart/bin/dart2native bin/main.dart -o main
 
 
-FROM scratch
+FROM docker.io/amazon/aws-lambda-provided:al2
 WORKDIR /app/
 COPY --from=builder /app/main .
 
